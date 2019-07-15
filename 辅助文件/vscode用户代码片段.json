@@ -1,0 +1,33 @@
+{
+ 
+	"vh": {
+		"prefix": "vh", // 触发的关键字 输入vh按下tab键
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"",
+			"<head>",
+			"    <meta charset=\"UTF-8\">",
+			"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
+			"    <title>Document</title>",
+      "    <!-- <script src=\"./lib/vue-2.4.0.js\"></script> -->",
+      "    <script src=\"https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js\"></script>"
+			"</head>",
+			"",
+			"<body>",
+			"    <div id=\"app\"></div>",
+			"    <script>",
+			"        var vm=new Vue({",
+			"           el:'#app',",
+			"           data:{},",
+			"           methods:{}",
+			"        });",
+			"    </script>",
+			"</body>",
+			"",
+			"</html>",
+		],
+		"description": "vh components"
+	}
+}
