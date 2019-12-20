@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>vue html demo</title>
+	<script src="../js/vue.js"></script>
+	<style>
+		.active{
+			color: red;
+		}
+	</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 错误的做法 -->
+			<img src="{{imgURL}}" >
+			<!-- 正确的做法 -->
+			<img v-bind:src="imgURL" >
+			<a v-bind:href="aHref">百度一下</a>
+			
+			<img :src="imgURL" >
+			<a :href="aHref">百度一下</a>
+		</div>
+		
+		
+		<div id="app1">
+			<h2 class="active">{{message}}</h2>
+			<h2 :class="active">{{message}}</h2>
+		</div>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					imgURL: "https://www.baidu.com/img/bd_logo1.png?where=super",
+					aHref: "https://www.baidu.com/"
+				},
+				methods:{
+
+				}
+			})
+			const app1 = new Vue({
+				el: '#app1',
+				data: {
+					message: "你好啊",
+					active: "active"
+				},
+				methods:{
+			
+				}
+			})
+		</script>
+	</body>
+</html>

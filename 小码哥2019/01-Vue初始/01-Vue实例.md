@@ -1,3 +1,4 @@
+#### Vue实例
 新建Vue实例时传入了options对象
 ```js
 var vm = new Vue({		//options
@@ -13,3 +14,7 @@ var vm = new Vue({		//options
 - methods
 	- {key:Function}
 	- 方法
+- 各生命周期的钩子函数
+	- beforeCreate
+	- created
+	- mounted
