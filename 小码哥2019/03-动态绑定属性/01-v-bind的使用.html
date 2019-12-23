@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="utf-8">
-	<title>vue html demo</title>
-	<script src="../js/vue.js"></script>
-	<style>
-		.active{
+		<meta charset="utf-8">
+		<title>vue html demo</title>
+		<script src="../js/vue.js"></script>
+		<style>
+			.active{
 			color: red;
 		}
 	</style>
 	</head>
 	<body>
 		<div id="app">
-			<!-- 错误的做法 -->
-			<img src="{{imgURL}}" >
+			<!-- 错误的做法：不能使用mustache语法 -->
+			<img src="{{imgURL}}">
 			<!-- 正确的做法 -->
-			<img v-bind:src="imgURL" >
+			<img v-bind:src="imgURL">
 			<a v-bind:href="aHref">百度一下</a>
-			
-			<img :src="imgURL" >
+			<!-- v-bind语法糖 -->
+			<img :src="imgURL">
 			<a :href="aHref">百度一下</a>
 		</div>
-		
-		
+
+		<!-- 动态绑定----对象语法 -->
 		<div id="app1">
-			<h2 class="active">{{message}}</h2>
-			<h2 :class="active">{{message}}</h2>
+			<!-- <h2 :class="{类名1:true,类名2:boolean}">{{message}}</h2> -->
+			<h2 class="title" :class="{active:isActive,line:isLine}">{{message}}</h2>
+			<h2 class="title" :class="getClasses()">{{message}}</h2>
+			<button type="button" v-on:click="btnClick">按钮</button>
 		</div>
+		<!-- 动态绑定----数组语法 很少使用 -->
+		<div id="app2">
+			<h2 class="title" :class="[active,line]">{{message}}</h2>
+			<h2 class="title" :class="getClasses()">{{message}}</h2>
+		</div>
+		
 		<script>
 			const app = new Vue({
 				el: '#app',
@@ -34,7 +42,7 @@
 					imgURL: "https://www.baidu.com/img/bd_logo1.png?where=super",
 					aHref: "https://www.baidu.com/"
 				},
-				methods:{
+				methods: {
 
 				}
 			})
@@ -42,10 +50,29 @@
 				el: '#app1',
 				data: {
 					message: "你好啊",
-					active: "active"
+					isActive: true,
+					isLine: true
 				},
-				methods:{
-			
+				methods: {
+					btnClick: function() {
+						this.isActive = !this.isActive
+					},
+					getClasses: function(){
+						return {active: this.isActive, line: this.isLine}
+					}
+				}
+			})
+			const app2 = new Vue({
+				el: '#app2',
+				data: {
+					message: "你好啊",
+					active: 'aaaaaaa',
+					line: 'bbbbbb'
+				},
+				methods: {
+					getClasses: function(){
+						return [this.active, this.line]
+				},
 				}
 			})
 		</script>
