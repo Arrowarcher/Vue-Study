@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>vue html demo</title>
+	<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1.直接拼接，语法过于繁琐 -->
+			<h2>{{firstNname +' '+lastName}}</h2>
+			<h2>{{firstNname}}  {{lastName}}</h2>
+			<!-- 2.通过定义methods -->
+			<h2>{{getFullName()}}</h2>
+			<h2>{{getFullName()}}</h2>
+			<h2>{{getFullName()}}</h2>
+			<!-- 3.通过computed -->
+			<h2>{{fullName}}</h2>
+			<h2>{{fullName}}</h2>
+			<h2>{{fullName}}</h2>
+		</div>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					firstNname: 'lebron',
+					lastName: 'jamne'
+				},
+				//计算属性
+				computed:{
+					fullName: function(){
+						console.log('fullName');
+						return this.firstNname + ' ' + this.lastName
+					}
+				},
+				methods:{
+					getFullName(){
+						console.log('getFullName');
+						return this.firstNname + ' ' + this.lastName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

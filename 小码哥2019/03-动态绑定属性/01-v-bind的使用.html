@@ -29,10 +29,18 @@
 			<h2 class="title" :class="getClasses()">{{message}}</h2>
 			<button type="button" v-on:click="btnClick">按钮</button>
 		</div>
+		
 		<!-- 动态绑定----数组语法 很少使用 -->
 		<div id="app2">
 			<h2 class="title" :class="[active,line]">{{message}}</h2>
 			<h2 class="title" :class="getClasses()">{{message}}</h2>
+		</div>
+		
+		<div id="app3">
+			<ul>
+				<!-- <li v-for="i in movies">{{i}}</li> -->
+				<li v-for="(i,index) in movies" :class="{active: currentIndex===index}" v-on:click="toRed(index)">{{index}}-{{i}}</li>
+			</ul>
 		</div>
 		
 		<script>
@@ -73,6 +81,19 @@
 					getClasses: function(){
 						return [this.active, this.line]
 				},
+				}
+			})
+			
+			const app3 = new Vue({
+				el: '#app3',
+				data: {
+					movies: ['海王','海尔兄弟','进击的巨人'],
+					currentIndex: -1
+				},
+				methods: {
+					toRed: function(index){
+						this.currentIndex = index
+					}
 				}
 			})
 		</script>
