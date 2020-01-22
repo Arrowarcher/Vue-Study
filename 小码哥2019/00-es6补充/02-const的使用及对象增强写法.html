@@ -33,17 +33,25 @@
 			// 	}
 			// }
 
+			
+			//属性的增强写法
 			//ES5
-			// const name = 'why';
-			// const age = 18;
-			// const obj = {
-			// 	name,
-			// 	age
-			// }
-			// console.log(obj);
+			const obj5 = {
+				name: 'why',
+				age: 18
+			}
+			//ES6
+			const name = 'why';
+			const age = 18;
+			const obj6 = {
+				name,
+				age
+			} 
+			console.log(obj5,obj6);
 
 			//函数增强写法
-			const obj = {
+			//ES5
+			const obj7 = {
 				run: function() {
 
 				},
@@ -51,6 +59,16 @@
 
 				}
 			}
+			//ES5
+			const obj8 = {
+				run() {
+			
+				},
+				eat() {
+			
+				}
+			}
+			console.log(obj7,obj8);
 		</script>
 	</body>
 </html>
